@@ -1,0 +1,166 @@
+/* Sorbonne Défense — feuille de style commune */
+
+@font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/eb-garamond-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/eb-garamond-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 500; font-display: swap; src: url("fonts/eb-garamond-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 500; font-display: swap; src: url("fonts/eb-garamond-latin-500-italic.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: normal; font-weight: 600; font-display: swap; src: url("fonts/eb-garamond-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "EB Garamond"; font-style: italic; font-weight: 600; font-display: swap; src: url("fonts/eb-garamond-latin-600-italic.woff2") format("woff2"); }
+@font-face { font-family: "Charis SIL"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/charis-sil-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Charis SIL"; font-style: italic; font-weight: 400; font-display: swap; src: url("fonts/charis-sil-latin-400-italic.woff2") format("woff2"); }
+@font-face { font-family: "Charis SIL"; font-style: normal; font-weight: 700; font-display: swap; src: url("fonts/charis-sil-latin-700-normal.woff2") format("woff2"); }
+@font-face { font-family: "Charis SIL"; font-style: italic; font-weight: 700; font-display: swap; src: url("fonts/charis-sil-latin-700-italic.woff2") format("woff2"); }
+
+:root {
+  color-scheme: light;
+  --bleu: #1F2447;        /* bleu du logo */
+  --bleu-clair: #3A4170;
+  --encre: #111114;       /* texte */
+  --gris: #585C70;        /* texte secondaire, teinté de bleu */
+  --filet: #D8DAE3;
+  --voile: #F5F6F9;
+  --fond: #FFFFFF;
+  --a-completer: #FFF1C2;
+
+  --titre: "EB Garamond", Garamond, "Times New Roman", serif;
+  --texte: "Charis SIL", Charis, Georgia, "Times New Roman", serif;
+
+  --mesure: 42rem;
+  --large: 64rem;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--fond); }
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--texte);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; height: auto; }
+
+a { color: var(--bleu); text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { color: var(--bleu-clair); text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--bleu); outline-offset: 3px; }
+
+.enveloppe { max-width: var(--large); margin-inline: auto; padding-inline: 1.25rem; }
+.colonne { max-width: var(--mesure); }
+.enveloppe.colonne { max-width: var(--large); }
+.enveloppe.colonne > * { max-width: var(--mesure); }
+
+/* ---------- En-tête ---------- */
+.entete { border-bottom: 1px solid var(--filet); background: var(--fond); }
+.entete .enveloppe {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem 2rem; flex-wrap: wrap; padding-block: 1rem;
+}
+.marque { display: flex; align-items: center; gap: 0.9rem; text-decoration: none; color: var(--bleu); }
+.marque img { width: 52px; height: auto; }
+.marque span {
+  font-family: var(--titre); font-weight: 500; font-size: 1.35rem;
+  letter-spacing: 0.14em; text-transform: uppercase; line-height: 1.1;
+}
+.marque small {
+  display: block; font-family: var(--texte); font-size: 0.72rem; letter-spacing: 0.08em;
+  text-transform: none; color: var(--gris); font-weight: 400; margin-top: 0.2rem;
+}
+
+.navigation ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.25rem 1.6rem; }
+.navigation a {
+  font-family: var(--titre); font-size: 1.05rem; letter-spacing: 0.06em;
+  color: var(--encre); text-decoration: none; padding-block: 0.3rem; border-bottom: 1px solid transparent;
+}
+.navigation a:hover { color: var(--bleu); border-bottom-color: var(--filet); }
+.navigation a[aria-current="page"] { color: var(--bleu); border-bottom-color: var(--bleu); }
+
+/* ---------- Titres ---------- */
+h1, h2, h3 { font-family: var(--titre); font-weight: 500; color: var(--bleu); line-height: 1.15; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.3rem, 5vw, 3.4rem); letter-spacing: 0.01em; }
+h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+h3 { font-size: 1.3rem; }
+p { margin: 0; }
+.surtitre {
+  font-family: var(--titre); font-size: 0.95rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gris); margin: 0 0 0.9rem;
+}
+.chapeau { font-size: 1.2rem; line-height: 1.6; color: var(--encre); }
+
+/* ---------- Sections ---------- */
+main { display: block; }
+.ouverture { padding-block: clamp(2.5rem, 7vw, 4.5rem) clamp(2rem, 5vw, 3rem); border-bottom: 1px solid var(--filet); }
+.ouverture .colonne { display: grid; gap: 1.1rem; }
+.section { padding-block: clamp(2.25rem, 6vw, 3.5rem); }
+.section + .section { border-top: 1px solid var(--filet); }
+.section--voile { background: var(--voile); border-top: 1px solid var(--filet); border-bottom: 1px solid var(--filet); }
+.section--voile + .section { border-top: 0; }
+.pile { display: grid; gap: 1rem; }
+.pile--large { display: grid; gap: 1.75rem; }
+
+/* Frontispice (accueil) */
+.frontispice { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem 2.5rem; align-items: center; }
+.frontispice img { width: 100px; }
+.filet-double { border-top: 3px double var(--bleu); padding-top: 1.25rem; margin-top: 1.75rem; }
+@media (max-width: 560px) { .frontispice { grid-template-columns: 1fr; } }
+
+/* Objet social : trois volets */
+.volets { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0; border-top: 1px solid var(--bleu); }
+.volet { padding: 1.4rem 1.5rem 1.6rem 0; display: grid; gap: 0.6rem; align-content: start; }
+.volet + .volet { border-left: 1px solid var(--filet); padding-left: 1.5rem; }
+.volet .numero { font-family: var(--titre); font-size: 1rem; letter-spacing: 0.14em; color: var(--gris); }
+@media (max-width: 780px) {
+  .volet, .volet + .volet { padding: 1.2rem 0; border-left: 0; }
+  .volet + .volet { border-top: 1px solid var(--filet); }
+}
+
+/* Encadré RESS */
+.encart { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem 3rem; align-items: end; }
+.sigle { font-family: var(--titre); font-weight: 500; font-size: clamp(3.5rem, 10vw, 5.5rem); letter-spacing: 0.08em; color: var(--bleu); line-height: 0.9; }
+@media (max-width: 640px) { .encart { grid-template-columns: 1fr; } .encart .sigle { display: none; } }
+
+.lien-fleche { font-family: var(--titre); font-size: 1.1rem; letter-spacing: 0.04em; text-decoration: none; border-bottom: 1px solid var(--bleu); padding-bottom: 0.1rem; }
+.lien-fleche::after { content: " →"; }
+
+/* Listes de données (fiche, bureau, coordonnées) */
+.fiche { display: grid; grid-template-columns: minmax(9rem, 14rem) 1fr; margin: 0; border-top: 1px solid var(--filet); }
+.fiche dt, .fiche dd { margin: 0; padding: 0.8rem 0; border-bottom: 1px solid var(--filet); }
+.fiche dt { font-family: var(--titre); font-size: 1.05rem; letter-spacing: 0.04em; color: var(--gris); padding-right: 1.25rem; }
+@media (max-width: 560px) {
+  .fiche { grid-template-columns: 1fr; }
+  .fiche dt { border-bottom: 0; padding-bottom: 0; }
+}
+
+.liste { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.45rem; }
+
+/* Sommaire des numéros */
+.numeros { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--bleu); }
+.numeros li { display: grid; grid-template-columns: 7rem 1fr; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--filet); }
+.numeros .n { font-family: var(--titre); font-size: 1.15rem; color: var(--bleu); letter-spacing: 0.06em; }
+@media (max-width: 480px) { .numeros li { grid-template-columns: 1fr; gap: 0.2rem; } }
+
+/* Mentions légales */
+.juridique h2 { font-size: 1.45rem; margin-top: 0.5rem; }
+.juridique .pile { gap: 0.8rem; }
+
+/* Champs à compléter : visibles pour relecture, à supprimer avant mise en ligne définitive */
+.a-completer {
+  background: var(--a-completer); color: #4A3B00; padding: 0.05em 0.35em; border-radius: 2px;
+  font-style: normal; font-size: 0.92em;
+}
+
+/* ---------- Pied de page ---------- */
+.pied { border-top: 3px double var(--bleu); margin-top: 0; padding-block: 2rem 2.5rem; color: var(--gris); font-size: 0.9rem; }
+.pied .enveloppe { display: grid; grid-template-columns: auto 1fr auto; gap: 1.25rem 2rem; align-items: center; }
+.pied img { width: 44px; }
+.pied p + p { margin-top: 0.2rem; }
+.pied nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.4rem 1.25rem; flex-wrap: wrap; }
+.pied a { color: var(--gris); }
+.pied a:hover { color: var(--bleu); }
+@media (max-width: 700px) { .pied .enveloppe { grid-template-columns: 1fr; } }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
